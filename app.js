@@ -40,7 +40,6 @@ app.use((req, res, next) => {
 // app.get(path, fn)
 
 
-
 app.get("/", (req, res, next) => {
     // res.send("<h1>home page</h1>")
     // res.json();
@@ -75,6 +74,23 @@ app.get("/pizzas", (req, res, next) => {
 
     res.json(pizzasArr);
 })
+
+
+//
+// Example of "Route params"
+//
+// GET  /pizza/margarita 
+// GET  /pizza/veggie
+// GET  /pizza/seafood
+// GET  /pizza/xxxxxx
+
+app.get("/pizzas/:pizzaName", (req, res, next) => {
+    // console.log(req.params)
+    const name = req.params.pizzaName;
+    res.send(`<h1>Details for pizza ${name} </h1>`)
+});
+
+
 
 
 // Start the server...
